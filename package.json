@@ -1,0 +1,17 @@
+{
+  "name": "yt-app",
+  "version": "0.0.1",
+  "description": "Social application based on sharing youtube videos. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Radoslaw Gladys",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.9"
+  }
+}
