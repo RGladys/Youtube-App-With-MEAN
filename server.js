@@ -3,6 +3,7 @@ const express = require('express'),
 	  bodyParser = require('body-parser'),
 	  authentication = require('./routes/authentication'),
 	  config = require('./config/database'),
+    path = require('path'),
 	  app = express();
 mongoose.Promise = global.Promise;
 
@@ -22,6 +23,11 @@ mongoose.connect(config.uri, {
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); 
 app.use('/auth', authentication);
+app.use(express.static(__dirname + '/client/dist/'));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/dist/index.html'));
+});
 
 //Start server
 app.listen(3000, () => {

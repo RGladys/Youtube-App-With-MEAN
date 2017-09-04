@@ -1,17 +1,27 @@
 {
-  "name": "yt-app",
+  "name": "yt_mean_app",
   "version": "0.0.1",
-  "description": "Social application based on sharing youtube videos. ",
+  "description": "Social app based on sharing youtube videos, created with MEAN stack. ",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "keywords": [
+    "angular2",
+    "node.js",
+    "mean",
+    "express",
+    "mongodb",
+    "youtube",
+    "social"
+  ],
   "author": "Radoslaw Gladys",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "mongoose": "^4.11.9"
+    "mongoose": "^4.11.10"
   }
 }
