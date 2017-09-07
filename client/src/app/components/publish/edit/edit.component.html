@@ -1,0 +1,16 @@
+<h1 class="page-header">Edit Blog</h1>
+
+<div class="row show-hide-message" *ngIf="message">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+<form (submit)="updatePost()">
+  <div class="form-group">
+    <label for="body">Post</label>
+      <textarea name="body" rows="4" cols="80" placeholder="Write something..." class="form-control" [(ngModel)]="this.postBody"></textarea>
+    </div>
+<button [disabled]="this.processing" class="btn btn-primary" type="submit">Save</button>
+<a [routerLink]="['/delete_post', post._id]"><button [disabled]="this.processing" class="btn btn-primary">Delete post</button></a>
+</form>

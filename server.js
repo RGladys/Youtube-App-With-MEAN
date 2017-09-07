@@ -2,8 +2,10 @@ const express = require('express'),
 	  mongoose = require('mongoose'),
 	  bodyParser = require('body-parser'),
 	  authentication = require('./routes/authentication'),
+    posts = require('./routes/posts'),
 	  config = require('./config/database'),
     path = require('path'),
+    cors = require('cors'),
 	  app = express();
 mongoose.Promise = global.Promise;
 
@@ -20,9 +22,13 @@ mongoose.connect(config.uri, {
 });
 
 //Middleware
+app.use(cors({
+  origin: 'http://localhost:4200',
+}))
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); 
 app.use('/auth', authentication);
+app.use('/posts', posts);
 app.use(express.static(__dirname + '/client/dist/'));
 
 app.get('*', (req, res) => {

@@ -1,21 +1,54 @@
- <form>
-  <h2>Sign Up<br><small>In order to use the site you have to create an account.</small></h2><br>
-  
+<h2>Sign Up<br><small class="hidden-xs">In order to use the site you have to create an account.</small></h2>
+<p class="text-info hidden-sm hidden-md hidden-lg">In order to use the site you have to create an account.</p>
+<br class="hidden-xs">
+
+<div class="row show-hide-message" align="center">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+
+
+ <form [formGroup]="form" (submit)="onRegisterSubmit()">
   <div class="form-group">
     <label>Username:</label>
-    <input type="text" class="form-control" id="username">
+    <input type="text" class="form-control" name="username" formControlName="username" autocomplete="off" (keyup)="this.checkUsername()">
+    <ul class="help-block">
+      <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty" class="text-warning">Username is required.</li>
+      <li *ngIf="form.controls.username.errors?.minlength && form.controls.username.dirty" class="text-warning">Username must be at least 3 characters long.</li>
+      <li *ngIf="form.controls.username.errors?.maxlength && form.controls.username.dirty" class="text-warning">Username can't containt more than 25 characters.</li>
+      <li *ngIf="this.usernameMessage">{{ this.usernameMessage }}</li>
+    </ul>
   </div>
   <div class="form-group">
     <label>Email address:</label>
-    <input class="form-control" id="email">
+    <input class="form-control" id="email" name="email" formControlName="email" autocomplete="off" (keyup)="this.checkEmail()">
+    <ul  class="help-block">
+      <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty" class="text-warning">Email is required.</li>
+      <li *ngIf="form.controls.email.errors?.minlength && form.controls.email.dirty" class="text-warning">Email must be at least 5 characters long.</li>
+      <li *ngIf="form.controls.email.errors?.maxlength && form.controls.email.dirty" class="text-warning">Email can't containt more than 30 characters.</li>
+      <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty" class="text-warning">You have to enter an email adress.</li>
+      <li *ngIf="this.emailMessage">{{ this.emailMessage }}</li>
+    </ul>
   </div>
   <div class="form-group">
     <label>Password:</label>
-    <input type="password" class="form-control" id="password">
+    <input type="password" class="form-control" name="password" formControlName="password" autocomplete="off">
+    <ul class="help-block">
+      <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty" class="text-warning">Password is required.</li>
+      <li *ngIf="form.controls.password.errors?.minlength && form.controls.password.dirty" class="text-warning">Password must be at least 8 characters long.</li>
+      <li *ngIf="form.controls.password.errors?.maxlength && form.controls.password.dirty" class="text-warning">Password can't containt more than 30 characters.</li>
+    </ul>
   </div>
   <div class="form-group">
     <label>Confirm password:</label>
-    <input type="password" class="form-control" id="password-confirm">
+    <input type="password" class="form-control" name="confirm" formControlName="confirm" autocomplete="off">
+    <ul class="help-block">
+      <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty" class="text-warning">You have to confirm a password.</li>
+      <li *ngIf="form.errors?.validatePasswords && form.controls.confirm.dirty" class="text-warning">Passwords do not match</li>
+    </ul>
   </div>
-  <button type="submit" class="btn btn-default">Sign Up</button>
+  <button type="submit" [disabled]="!form.valid || processing || usernameMessage" class="btn btn-primary hidden-xs">Sign Up</button>
+  <button type="submit" [disabled]="!form.valid || processing || emailMessage" class="btn btn-primary btn-block hidden-sm hidden-md hidden-lg">Sign Up</button>
 </form> 

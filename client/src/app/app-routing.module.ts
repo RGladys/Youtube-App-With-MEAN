@@ -3,6 +3,14 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PublishComponent } from './components/publish/publish.component';
+import { EditComponent } from './components/publish/edit/edit.component';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/not-auth.guard';
+
+EditComponent
 
 const appRoutes: Routes = [
   {
@@ -11,11 +19,33 @@ const appRoutes: Routes = [
   },
   {
   	path: 'signup',
-  	component: RegisterComponent
+  	component: RegisterComponent,
+    canActivate: [NotAuthGuard]
   },
   {
-  	path: 'login',
-  	component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [NotAuthGuard]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'publish',
+    component: PublishComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit_post/:id',
+    component: EditComponent,
+    canActivate: [AuthGuard]
   },
   { path: '**', component: HomeComponent } 
 ];
