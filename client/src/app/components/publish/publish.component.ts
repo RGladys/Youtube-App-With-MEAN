@@ -29,7 +29,7 @@ export class PublishComponent implements OnInit {
       body: ['', Validators.compose([
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(400)
+        Validators.maxLength(500)
       ])]
     })
   }
@@ -52,7 +52,7 @@ export class PublishComponent implements OnInit {
       author: this.username
     };
     this.postsService.newPost(post).subscribe((data) => {
-      if (!data.succes) {
+      if (!data.success) {
         this.messageClass = 'alert alert-danger';
         this.message = data.message;
         this.processing = false;

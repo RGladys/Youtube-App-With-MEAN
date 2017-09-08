@@ -17,6 +17,7 @@ import { NotAuthGuard } from './guards/not-auth.guard';
 import { PublishComponent } from './components/publish/publish.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditComponent } from './components/publish/edit/edit.component';
+import { DeleteComponent } from './components/publish/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditComponent } from './components/publish/edit/edit.component';
     ProfileComponent,
     PublishComponent,
     DashboardComponent,
-    EditComponent
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

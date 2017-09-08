@@ -7,10 +7,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PublishComponent } from './components/publish/publish.component';
 import { EditComponent } from './components/publish/edit/edit.component';
+import { DeleteComponent } from './components/publish/delete/delete.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
-
-EditComponent
 
 const appRoutes: Routes = [
   {
@@ -45,6 +44,11 @@ const appRoutes: Routes = [
   {
     path: 'edit_post/:id',
     component: EditComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'delete_post/:id',
+    component: DeleteComponent,
     canActivate: [AuthGuard]
   },
   { path: '**', component: HomeComponent } 

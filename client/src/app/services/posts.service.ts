@@ -33,4 +33,18 @@ export class PostsService {
     return this.http.get(this.domain + 'posts/getposts', this.header).map((res) => res.json())
   }
 
+  getPost(id) {
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'posts/getpost/' + id, this.header).map((res) => res.json())
+  }
+
+  updatePost(post) {
+    this.createAuthenticationHeaders();
+    return this.http.put(this.domain + 'posts/updatepost/', post, this.header).map((res) => res.json())
+  }
+
+  deletePost(id) {
+    this.createAuthenticationHeaders();
+    return this.http.delete(this.domain + 'posts/deletepost/' + id, this.header).map((res) => res.json())
+  }
 }

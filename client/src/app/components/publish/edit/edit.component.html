@@ -1,16 +1,17 @@
 <h1 class="page-header">Edit Blog</h1>
 
-<div class="row show-hide-message" *ngIf="message">
+<div class="row show-hide-message" align="center" *ngIf="message">
   <div [ngClass]="messageClass">
     {{ message }}
   </div>
 </div>
 
-<form (submit)="updatePost()">
+<form *ngIf="this.display">
   <div class="form-group">
     <label for="body">Post</label>
-      <textarea name="body" rows="4" cols="80" placeholder="Write something..." class="form-control" [(ngModel)]="this.postBody"></textarea>
+      <textarea name="body" rows="4" cols="80" placeholder="Write something..." class="form-control" [(ngModel)]="this.post.body"></textarea>
     </div>
-<button [disabled]="this.processing" class="btn btn-primary" type="submit">Save</button>
-<a [routerLink]="['/delete_post', post._id]"><button [disabled]="this.processing" class="btn btn-primary">Delete post</button></a>
+<button [disabled]="this.processing" class="btn btn-primary" type="submit" (click)="updatePost()">Save</button>
+<a ><button [routerLink]="['/delete_post', post._id]" [disabled]="this.processing" class="btn btn-primary">Delete post</button></a>
+<a routerLink="/dashboard"><button [disabled]="processing" type="button" name="button" class="btn btn-secondary">Back</button></a>
 </form>

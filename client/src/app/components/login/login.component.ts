@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   		password: this.form.get('password').value
   	};
   	this.authService.login(user).subscribe((data) => {
-  		if (!data.succes) {
+  		if (!data.success) {
   			this.processing = false;
   			this.messageClass = "alert alert-danger";
   			this.message = data.message;
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   			this.authService.storeUserData(data.token, data.user)
   			setTimeout(() => {
   				this.router.navigate(['/dashboard'])
-  			}, 1500)
+  			}, 1000)
   		}
   	})
   }

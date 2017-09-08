@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
   		password: this.form.get('password').value
   	};
   	this.authService.register(user).subscribe((data) => {
-  		if (!data.succes) {
+  		if (!data.success) {
   			this.processing = false;
   			this.messageClass = "alert alert-danger";
   			this.message = data.message
@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit {
   			this.message = data.message;
   			setTimeout(() => {
   				this.router.navigate(['/login'])
-  			}, 1500)
+  			}, 1000)
   		}
   	})
   }
@@ -88,7 +88,7 @@ export class RegisterComponent implements OnInit {
   checkUsername() {
   	const username = this.form.get('username').value.toLowerCase();
   	this.authService.checkUsername(username).subscribe((data) => {
-  		if (!data.succes) {
+  		if (!data.success) {
   			this.usernameMessage = data.message
   		} else {
   			this.usernameMessage = false
@@ -99,7 +99,7 @@ export class RegisterComponent implements OnInit {
   checkEmail() {
   	const email = this.form.get('email').value.toLowerCase();
   	this.authService.checkEmail(email).subscribe((data) => {
-  		if (!data.succes) {
+  		if (!data.success) {
   			this.emailMessage = data.message
   		} else {
   			this.emailMessage = false

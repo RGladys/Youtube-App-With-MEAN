@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
 
 //Body length check function
 let bodyLengthCheck = (body) => {
-	if (body.length < 5 || body.length > 400) {
+	if (body.length < 5 || body.length > 500) {
       return false; 
     } else {
       return true; 
@@ -24,7 +24,7 @@ const bodyValidators = [
 
 //Comment length check function
 let commentLengthCheck = (comment) => {
-	if (comment[0].length < 5 || comment[0].length > 200) {
+	if (comment[0].length < 5 || comment[0].length > 300) {
       return false; 
     } else {
       return true; 
