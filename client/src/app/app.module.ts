@@ -20,6 +20,7 @@ import { EditComponent } from './components/publish/edit/edit.component';
 import { DeleteComponent } from './components/publish/delete/delete.component';
 import { PostComponent } from './components/post/post.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     EditComponent,
     DeleteComponent,
     PostComponent,
-    ProfileComponent
+    ProfileComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,

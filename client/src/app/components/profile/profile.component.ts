@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
       if (!posts.success) {
         
       } else {
-        this.posts = posts.message;
+        this.posts = posts.message.reverse();
         this.postsNumber = posts.message.length
       }     
     })

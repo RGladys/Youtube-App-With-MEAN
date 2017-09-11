@@ -53,7 +53,6 @@ export class PostComponent implements OnInit {
       	this.found = true;
         this.post = post.post[0];
         this.comments = post.post[0].comments.reverse();
-        this.link = this.domSanitizer.bypassSecurityTrustResourceUrl(post.post[0].link)
         if (this.comments[0]) {
           this.commentsBool = true
         }

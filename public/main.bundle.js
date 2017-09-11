@@ -6,9 +6,9 @@ webpackJsonp([1,4],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(706);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(709);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(522);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(523);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -91,7 +91,7 @@ var AuthService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_posts_service__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(42);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -111,6 +111,8 @@ var DashboardComponent = (function () {
         this.authService = authService;
         this.postsService = postsService;
         this.domSanitizer = domSanitizer;
+        this.test = "test";
+        this.linkvideo = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/cYMCLz5PQVw');
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -123,6 +125,7 @@ var DashboardComponent = (function () {
         var _this = this;
         this.postsService.getAllPosts().subscribe(function (posts) {
             _this.postsArray = posts.posts;
+            console.log(_this.postsArray[0].link);
         });
     };
     DashboardComponent.prototype.enableLink = function (link) {
@@ -131,8 +134,8 @@ var DashboardComponent = (function () {
     DashboardComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-dashboard',
-            template: __webpack_require__(690),
-            styles: [__webpack_require__(678)]
+            template: __webpack_require__(692),
+            styles: [__webpack_require__(679)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* DomSanitizer */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* DomSanitizer */]) === 'function' && _c) || Object])
     ], DashboardComponent);
@@ -170,8 +173,8 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
-            template: __webpack_require__(691),
-            styles: [__webpack_require__(679)]
+            template: __webpack_require__(693),
+            styles: [__webpack_require__(680)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object])
     ], HomeComponent);
@@ -243,8 +246,8 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-login',
-            template: __webpack_require__(692),
-            styles: [__webpack_require__(680)]
+            template: __webpack_require__(694),
+            styles: [__webpack_require__(681)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _c) || Object])
     ], LoginComponent);
@@ -262,7 +265,7 @@ var LoginComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_posts_service__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(42);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyProfileComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -305,8 +308,8 @@ var MyProfileComponent = (function () {
     MyProfileComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-my-profile',
-            template: __webpack_require__(693),
-            styles: [__webpack_require__(681)]
+            template: __webpack_require__(695),
+            styles: [__webpack_require__(682)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* DomSanitizer */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* DomSanitizer */]) === 'function' && _c) || Object])
     ], MyProfileComponent);
@@ -327,7 +330,7 @@ var MyProfileComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(42);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PostComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -377,7 +380,6 @@ var PostComponent = (function () {
                 _this.found = true;
                 _this.post = post.post[0];
                 _this.comments = post.post[0].comments.reverse();
-                _this.link = _this.domSanitizer.bypassSecurityTrustResourceUrl(post.post[0].link);
                 if (_this.comments[0]) {
                     _this.commentsBool = true;
                 }
@@ -422,8 +424,8 @@ var PostComponent = (function () {
     PostComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-post',
-            template: __webpack_require__(695),
-            styles: [__webpack_require__(683)]
+            template: __webpack_require__(697),
+            styles: [__webpack_require__(684)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_posts_service__["a" /* PostsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_posts_service__["a" /* PostsService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__angular_common__["c" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__angular_common__["c" /* Location */]) === 'function' && _f) || Object, (typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__["c" /* DomSanitizer */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__["c" /* DomSanitizer */]) === 'function' && _g) || Object])
     ], PostComponent);
@@ -441,7 +443,7 @@ var PostComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_posts_service__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(20);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -479,7 +481,7 @@ var ProfileComponent = (function () {
             if (!posts.success) {
             }
             else {
-                _this.posts = posts.message;
+                _this.posts = posts.message.reverse();
                 _this.postsNumber = posts.message.length;
             }
         });
@@ -490,8 +492,8 @@ var ProfileComponent = (function () {
     ProfileComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-profile',
-            template: __webpack_require__(696),
-            styles: [__webpack_require__(684)]
+            template: __webpack_require__(698),
+            styles: [__webpack_require__(685)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* DomSanitizer */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* DomSanitizer */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === 'function' && _e) || Object])
     ], ProfileComponent);
@@ -571,8 +573,8 @@ var DeleteComponent = (function () {
     DeleteComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-delete',
-            template: __webpack_require__(697),
-            styles: [__webpack_require__(685)]
+            template: __webpack_require__(699),
+            styles: [__webpack_require__(686)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_posts_service__["a" /* PostsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_posts_service__["a" /* PostsService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["c" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_common__["c" /* Location */]) === 'function' && _d) || Object])
     ], DeleteComponent);
@@ -652,8 +654,8 @@ var EditComponent = (function () {
     EditComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-edit',
-            template: __webpack_require__(698),
-            styles: [__webpack_require__(686)]
+            template: __webpack_require__(700),
+            styles: [__webpack_require__(687)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_posts_service__["a" /* PostsService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["c" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_common__["c" /* Location */]) === 'function' && _d) || Object])
     ], EditComponent);
@@ -749,8 +751,8 @@ var PublishComponent = (function () {
     PublishComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-publish',
-            template: __webpack_require__(699),
-            styles: [__webpack_require__(687)]
+            template: __webpack_require__(701),
+            styles: [__webpack_require__(688)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_posts_service__["a" /* PostsService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__services_posts_service__["a" /* PostsService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === 'function' && _d) || Object])
     ], PublishComponent);
@@ -880,8 +882,8 @@ var RegisterComponent = (function () {
     RegisterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-register',
-            template: __webpack_require__(700),
-            styles: [__webpack_require__(688)],
+            template: __webpack_require__(702),
+            styles: [__webpack_require__(689)],
             providers: [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === 'function' && _c) || Object])
@@ -1004,7 +1006,7 @@ webpackEmptyContext.id = 400;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(487);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(522);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(519);
 
 
@@ -1153,8 +1155,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(689),
-            styles: [__webpack_require__(677)]
+            template: __webpack_require__(691),
+            styles: [__webpack_require__(678)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -1168,7 +1170,7 @@ var AppComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(151);
@@ -1189,6 +1191,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_publish_delete_delete_component__ = __webpack_require__(340);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_post_post_component__ = __webpack_require__(338);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_profile_profile_component__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_video_video_component__ = __webpack_require__(521);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1199,6 +1202,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1238,7 +1242,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_17__components_publish_edit_edit_component__["a" /* EditComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__components_publish_delete_delete_component__["a" /* DeleteComponent */],
                 __WEBPACK_IMPORTED_MODULE_19__components_post_post_component__["a" /* PostComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__components_profile_profile_component__["a" /* ProfileComponent */]
+                __WEBPACK_IMPORTED_MODULE_20__components_profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__components_video_video_component__["a" /* VideoComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1296,8 +1301,8 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-navbar',
-            template: __webpack_require__(694),
-            styles: [__webpack_require__(682)]
+            template: __webpack_require__(696),
+            styles: [__webpack_require__(683)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === 'function' && _b) || Object])
     ], NavbarComponent);
@@ -1309,6 +1314,52 @@ var NavbarComponent = (function () {
 /***/ }),
 
 /***/ 521:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(42);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VideoComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var VideoComponent = (function () {
+    function VideoComponent(domSanitizer) {
+        this.domSanitizer = domSanitizer;
+    }
+    VideoComponent.prototype.ngOnInit = function () {
+    };
+    VideoComponent.prototype.enableLink = function (link) {
+        return this.domSanitizer.bypassSecurityTrustResourceUrl(link);
+    };
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
+        __metadata('design:type', Object)
+    ], VideoComponent.prototype, "video", void 0);
+    VideoComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-video',
+            template: __webpack_require__(703),
+            styles: [__webpack_require__(690)]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]) === 'function' && _a) || Object])
+    ], VideoComponent);
+    return VideoComponent;
+    var _a;
+}());
+//# sourceMappingURL=D:/Programowanie/yt-app/client/src/video.component.js.map
+
+/***/ }),
+
+/***/ 522:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1406,175 +1457,189 @@ var PostsService = (function () {
 
 /***/ }),
 
-/***/ 677:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ 678:
 /***/ (function(module, exports) {
 
-module.exports = ".panel {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}\r\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ 679:
 /***/ (function(module, exports) {
 
-module.exports = ".jumbotron {\r\n\tbackground: #eaeaea;\r\n\tborder-radius: 15px;\r\n}\r\n\r\n.btn-secondary {\r\n\tborder: 1px solid grey;\r\n}"
+module.exports = ".panel {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}\r\n"
 
 /***/ }),
 
 /***/ 680:
 /***/ (function(module, exports) {
 
-module.exports = ".alert {\r\n\twidth: 97%;\r\n}"
+module.exports = ".jumbotron {\r\n\tbackground: #eaeaea;\r\n\tborder-radius: 15px;\r\n}\r\n\r\n.btn-secondary {\r\n\tborder: 1px solid grey;\r\n}"
 
 /***/ }),
 
 /***/ 681:
 /***/ (function(module, exports) {
 
-module.exports = ".page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.panel, ul {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}"
+module.exports = ".alert {\r\n\twidth: 97%;\r\n}"
 
 /***/ }),
 
 /***/ 682:
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.panel, ul {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}"
 
 /***/ }),
 
 /***/ 683:
 /***/ (function(module, exports) {
 
-module.exports = ".panel {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}\r\n\r\n.alert {\r\n\twidth: 97%;\r\n}\r\n\r\n.jumbotron {\r\n\tpadding: 10px;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\na {\r\n\tcolor: black;\r\n}\r\n\r\n.hidden-sm {\r\n\tmargin-left: -10px;\r\n}"
+module.exports = ""
 
 /***/ }),
 
 /***/ 684:
 /***/ (function(module, exports) {
 
-module.exports = ".page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.panel, ul {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}"
+module.exports = ".panel {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}\r\n\r\n.alert {\r\n\twidth: 97%;\r\n}\r\n\r\n.jumbotron {\r\n\tpadding: 10px;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\na {\r\n\tcolor: black;\r\n}\r\n\r\n.hidden-sm {\r\n\tmargin-left: -10px;\r\n}"
 
 /***/ }),
 
 /***/ 685:
 /***/ (function(module, exports) {
 
-module.exports = ".alert {\r\n\twidth: 97%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.jumbotron {\r\n\tpadding-top: 10px;\r\n\tpadding-bottom: 10px;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.page-header {\r\n\tmargin-top: 0px;\r\n}"
+module.exports = ".page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.panel, ul {\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.author {\r\n\tfont-weight: bold\r\n}"
 
 /***/ }),
 
 /***/ 686:
 /***/ (function(module, exports) {
 
-module.exports = ".page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.alert {\r\n\twidth: 97%;\r\n}"
+module.exports = ".alert {\r\n\twidth: 97%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.jumbotron {\r\n\tpadding-top: 10px;\r\n\tpadding-bottom: 10px;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.page-header {\r\n\tmargin-top: 0px;\r\n}"
 
 /***/ }),
 
 /***/ 687:
 /***/ (function(module, exports) {
 
-module.exports = "body {\r\n\tmargin: 0;\r\n}\r\n\r\n.alert {\r\n\twidth: 97%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.jumbotron {\r\n\tpadding-top: 10px;\r\n\tpadding-bottom: 10px;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.video-md {\r\n\theight: 190px\r\n}\r\n\r\n.video-sm {\r\n\theight: 120px\r\n}\r\n\r\n.video-md img {\r\n\tpadding: 5px\r\n}\r\n\r\n.video-sm img {\r\n\tpadding: 5px\r\n}\r\n\r\nh4, h5 {\r\n\tpadding-top: 5px;\r\n\tfont-weight: 500;\r\n}\r\n\r\n.videoClick {\r\n\tcursor: pointer;\r\n\tmargin-top: -12px;\r\n}\r\n\r\nlabel {\r\n\tfont-size: 14px;\r\n}"
+module.exports = ".page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.alert {\r\n\twidth: 97%;\r\n}"
 
 /***/ }),
 
 /***/ 688:
 /***/ (function(module, exports) {
 
-module.exports = ".alert {\r\n\twidth: 97%;\r\n}"
+module.exports = "body {\r\n\tmargin: 0;\r\n}\r\n\r\n.alert {\r\n\twidth: 97%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.jumbotron {\r\n\tpadding-top: 10px;\r\n\tpadding-bottom: 10px;\r\n\tborder: 1px solid grey;\r\n}\r\n\r\n.page-header {\r\n\tmargin-top: 0px;\r\n}\r\n\r\n.video-md {\r\n\theight: 190px\r\n}\r\n\r\n.video-sm {\r\n\theight: 120px\r\n}\r\n\r\n.video-md img {\r\n\tpadding: 5px\r\n}\r\n\r\n.video-sm img {\r\n\tpadding: 5px\r\n}\r\n\r\nh4, h5 {\r\n\tpadding-top: 5px;\r\n\tfont-weight: 500;\r\n}\r\n\r\n.videoClick {\r\n\tcursor: pointer;\r\n\tmargin-top: -12px;\r\n}\r\n\r\nlabel {\r\n\tfont-size: 14px;\r\n}"
 
 /***/ }),
 
 /***/ 689:
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n\r\n<div class=\"container\">\r\n  <router-outlet></router-outlet>\r\n</div>"
+module.exports = ".alert {\r\n\twidth: 97%;\r\n}"
 
 /***/ }),
 
 /***/ 690:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\" *ngFor=\"let post of postsArray\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\"><a [routerLink]=\"['/profile', post.author]\">{{ post.author }}</a></div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n\t<iframe id=\"ytplayer\" width=\"400\" height=\"300\" [src]=\"enableLink(post.link)\" frameborder=\"0\" class=\"hidden-xs\"></iframe>\r\n\t<iframe id=\"ytplayer\" width=\"250\" height=\"200\" [src]=\"enableLink(post.link)\" frameborder=\"0\" class=\"hidden-sm hidden-md hidden-lg\"></iframe>\r\n\t{{ post.body }}\r\n\t</div>\r\n\t<div class=\"panel-footer\">\r\n\t\t<a [routerLink]=\"['/post', post._id]\"><button class=\"btn btn-primary btn-sm\">Comments</button></a>\r\n\t\t<a [routerLink]=\"['/edit_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-warning btn-sm\">Edit</button></a>\r\n\t\t<a [routerLink]=\"['/delete_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-danger btn-sm\">Delete</button></a>\r\n\t</div>\r\n</div>"
+module.exports = ""
 
 /***/ }),
 
 /***/ 691:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\" align=\"center\">\r\n\t<h1>Youtube App\r\n\t<br>\r\n\t<small>by <a href=\"https://github.com/RGladys/\">Radoslaw Gladys</a></small>\r\n\t</h1>\r\n\t<br>\r\n\t<button routerLink=\"/login\" class=\"btn btn-primary btn-md\" *ngIf=\"!authService.loggedIn()\">Login</button>\r\n\t<button routerLink=\"/signup\" class=\"btn btn-secondary btn-md\" *ngIf=\"!authService.loggedIn()\">Register</button>\r\n\t<h3 class=\"text-primary\">Social app made with MongoDB, Express.js, Angular2 and Node.js.</h3>\r\n\t<h4>Share the videos and find out what posted others!</h4>\r\n</div>"
+module.exports = "<app-navbar></app-navbar>\r\n\r\n<div class=\"container\">\r\n  <router-outlet></router-outlet>\r\n</div>"
 
 /***/ }),
 
 /***/ 692:
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Sign Up<br><small class=\"hidden-xs\">Don't have an account? <a routerLink=\"/signup\">Register</a>!</small></h2>\r\n\r\n<br class=\"hidden-xs\">\r\n\r\n<div class=\"row show-hide-message\" align=\"center\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<form [formGroup]=\"form\" (submit)=\"onLoginSumbit()\">\r\n  <br>\r\n  <div class=\"form-group\">\r\n    <label>Username:</label>\r\n    <input type=\"text\" class=\"form-control\" name=\"username\" formControlName=\"username\">\r\n    <ul class=\"help-block\">\r\n      <li *ngIf=\"form.controls.username.errors?.required && form.controls.username.dirty\" class=\"text-danger\">Username is required.</li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password:</label>\r\n    <input type=\"password\" class=\"form-control\" name=\"password\" formControlName=\"password\" autocomplete=\"off\">\r\n    <ul class=\"help-block\">\r\n      <li *ngIf=\"form.controls.password.errors?.required && form.controls.password.dirty\" class=\"text-danger\">Password is required.</li>\r\n    </ul>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!form.valid || processing\" class=\"btn btn-primary hidden-xs\">Login</button>\r\n  <button type=\"submit\" [disabled]=\"!form.valid || processing\" class=\"btn btn-primary btn-block hidden-sm hidden-md hidden-lg\">Login</button>\r\n  <p class=\"text-info text-center hidden-sm hidden-md hidden-lg\">Don't have an account? <a routerLink=\"/signup\">Register</a>!</p>\r\n</form>"
+module.exports = "<div class=\"panel panel-default\" *ngFor=\"let post of postsArray\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\"><a [routerLink]=\"['/profile', post.author]\">{{ post.author }}</a></div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n\t<app-video [video]=\"post.link\"></app-video>\r\n\t{{ post.body }}\r\n\t</div>\r\n\t<div class=\"panel-footer\">\r\n\t\t<a [routerLink]=\"['/post', post._id]\"><button class=\"btn btn-primary btn-sm\">Comments</button></a>\r\n\t\t<a [routerLink]=\"['/edit_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-warning btn-sm\">Edit</button></a>\r\n\t\t<a [routerLink]=\"['/delete_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-danger btn-sm\">Delete</button></a>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
 /***/ 693:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"page-header\">Profile Page</h1>\r\n<ul class=\"list-group\">\r\n  <li class=\"list-group-item\">Username: {{ username }}</li>\r\n  <li class=\"list-group-item\">Email: {{ email }}</li>\r\n  <li class=\"list-group-item\">Posts: {{ postsNumber }}</li>\r\n</ul>\r\n\r\n<h3 class=\"page-header\">Posts by {{ username }}:</h3>\r\n\r\n<div class=\"panel panel-default\" *ngFor=\"let post of posts\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\">{{ post.author }}</div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n\t<iframe width=\"400\" height=\"300\" [src]=\"enableLink(post.link)\" frameborder=\"0\"></iframe>\r\n\t{{ post.body }}</div>\r\n\t<div class=\"panel-footer\">\r\n\t\t<a [routerLink]=\"['/post', post._id]\"><button class=\"btn btn-primary btn-sm\">Comments</button></a>\r\n\t\t<a [routerLink]=\"['/edit_post', post._id]\"><button class=\"btn btn-warning btn-sm\">Edit</button></a>\r\n\t\t<a [routerLink]=\"['/delete_post', post._id]\"><button class=\"btn btn-danger btn-sm\">Delete</button></a>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"jumbotron\" align=\"center\">\r\n\t<h1>Youtube App\r\n\t<br>\r\n\t<small>by <a href=\"https://github.com/RGladys/\">Radoslaw Gladys</a></small>\r\n\t</h1>\r\n\t<br>\r\n\t<button routerLink=\"/login\" class=\"btn btn-primary btn-md\" *ngIf=\"!authService.loggedIn()\">Login</button>\r\n\t<button routerLink=\"/signup\" class=\"btn btn-secondary btn-md\" *ngIf=\"!authService.loggedIn()\">Register</button>\r\n\t<h3 class=\"text-primary\">Social app made with MongoDB, Express.js, Angular2 and Node.js.</h3>\r\n\t<h4>Share the videos and find out what posted others!</h4>\r\n</div>"
 
 /***/ }),
 
 /***/ 694:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=container>\r\n<nav class=\"navbar navbar-default\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>                        \r\n      </button>\r\n      <a class=\"navbar-brand\" routerLink=\"/\">Youtube App</a>\r\n    </div>\r\n    <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\r\n      <ul class=\"nav navbar-nav navbar-left\">\r\n        <li *ngIf=\"authService.loggedIn()\"><a routerLink=\"/dashboard\">Dashboard</a></li>\r\n        <li *ngIf=\"authService.loggedIn()\"><a routerLink=\"/publish\">Publish</a></li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"authService.loggedIn()\"><a routerLink=\"/myprofile\">Profile</a></li>\r\n        <li *ngIf=\"authService.loggedIn()\"><a href=\"#\" (click)=\"onLogout()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\r\n        <li><a routerLink=\"/login\" *ngIf=\"!authService.loggedIn()\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\r\n        <li><a routerLink=\"/signup\" *ngIf=\"!authService.loggedIn()\"><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>\r\n</div>"
+module.exports = "<h2>Sign Up<br><small class=\"hidden-xs\">Don't have an account? <a routerLink=\"/signup\">Register</a>!</small></h2>\r\n\r\n<br class=\"hidden-xs\">\r\n\r\n<div class=\"row show-hide-message\" align=\"center\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<form [formGroup]=\"form\" (submit)=\"onLoginSumbit()\">\r\n  <br>\r\n  <div class=\"form-group\">\r\n    <label>Username:</label>\r\n    <input type=\"text\" class=\"form-control\" name=\"username\" formControlName=\"username\">\r\n    <ul class=\"help-block\">\r\n      <li *ngIf=\"form.controls.username.errors?.required && form.controls.username.dirty\" class=\"text-danger\">Username is required.</li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password:</label>\r\n    <input type=\"password\" class=\"form-control\" name=\"password\" formControlName=\"password\" autocomplete=\"off\">\r\n    <ul class=\"help-block\">\r\n      <li *ngIf=\"form.controls.password.errors?.required && form.controls.password.dirty\" class=\"text-danger\">Password is required.</li>\r\n    </ul>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!form.valid || processing\" class=\"btn btn-primary hidden-xs\">Login</button>\r\n  <button type=\"submit\" [disabled]=\"!form.valid || processing\" class=\"btn btn-primary btn-block hidden-sm hidden-md hidden-lg\">Login</button>\r\n  <p class=\"text-info text-center hidden-sm hidden-md hidden-lg\">Don't have an account? <a routerLink=\"/signup\">Register</a>!</p>\r\n</form>"
 
 /***/ }),
 
 /***/ 695:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\" *ngIf=\"found\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\"><a [routerLink]=\"['/profile', post.author]\">{{ post.author }}</a></div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n  <iframe width=\"400\" height=\"300\" [src]=\"this.link\" frameborder=\"0\" class=\"hidden-xs\"></iframe>\r\n  <iframe width=\"250\" height=\"200\" [src]=\"this.link\" frameborder=\"0\" class=\"hidden-sm hidden-md hidden-lg\"></iframe>\r\n  {{ post.body }}</div>\r\n  <div class=\"panel-footer\">\r\n    <a [routerLink]=\"['/edit_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-warning btn-sm\">Edit</button></a>\r\n    <a [routerLink]=\"['/delete_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-danger btn-sm\">Delete</button></a>\r\n    <button (click)=\"back()\" class=\"btn btn-primary btn-sm\">Back</button>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row show-hide-message\" align=\"center\" *ngIf=\"message\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<div class=\"jumbotron\" *ngIf=\"found\">\r\n<form [formGroup]=\"form\" (submit)=\"newComment()\">\r\n\t<textarea name=\"comment\" rows=\"5\" cols=\"20\" class=\"form-control\" placeholder=\"Add comment...\" formControlName=\"comment\" resize=\"none\"></textarea>\r\n\t<ul class=\"help-block\">\r\n        <li *ngIf=\"form.controls.comment.dirty && form.controls.comment.errors?.required\">This field is required.</li>\r\n        <li *ngIf=\"form.controls.comment.dirty && form.controls.comment.errors?.minlength || form.controls.comment.errors?.maxlength\">Comment must containt at least 10 character, but no more than 700. </li>\r\n    </ul>\r\n\t<button [disabled]=\"this.processing\" type=\"submit\" class=\"btn btn-sm btn-primary\">Submit</button>\r\n</form>\r\n</div>\r\n\r\n<h3 class=\"page-header\" *ngIf=\"found\">Comments:</h3>\r\n<ul class=\"list-group\" *ngFor=\"let comment of comments\">\r\n  <li class=\"list-group-item\"><h5 class=\"text-bold\"><strong><a [routerLink]=\"['/profile', comment.commentAuthor]\">{{ comment.commentAuthor }}</a></strong>   {{ comment.date | date: 'dd.MM.yyyy' }}</h5>\r\n  <h5>{{ comment.comment }}</h5>\r\n  </li>\r\n</ul> \r\n<h5 *ngIf=\"!commentsBool && found\">Post wasn't commented yet.</h5>"
+module.exports = "<h1 class=\"page-header\">Profile Page</h1>\r\n<ul class=\"list-group\">\r\n  <li class=\"list-group-item\">Username: {{ username }}</li>\r\n  <li class=\"list-group-item\">Email: {{ email }}</li>\r\n  <li class=\"list-group-item\">Posts: {{ postsNumber }}</li>\r\n</ul>\r\n\r\n<h3 class=\"page-header\">Posts by {{ username }}:</h3>\r\n\r\n<div class=\"panel panel-default\" *ngFor=\"let post of posts\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\">{{ post.author }}</div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n\t<app-video [video]=\"post.link\"></app-video>\r\n\t{{ post.body }}</div>\r\n\t<div class=\"panel-footer\">\r\n\t\t<a [routerLink]=\"['/post', post._id]\"><button class=\"btn btn-primary btn-sm\">Comments</button></a>\r\n\t\t<a [routerLink]=\"['/edit_post', post._id]\"><button class=\"btn btn-warning btn-sm\">Edit</button></a>\r\n\t\t<a [routerLink]=\"['/delete_post', post._id]\"><button class=\"btn btn-danger btn-sm\">Delete</button></a>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
 /***/ 696:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"page-header\">{{ username }}</h1>\r\n\r\n<h3 class=\"page-header\">{{ postsNumber }} posts by {{ username }}:</h3>\r\n\r\n<div class=\"panel panel-default\" *ngFor=\"let post of posts\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\">{{ post.author }}</div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n\t<iframe width=\"400\" height=\"300\" [src]=\"enableLink(post.link)\" frameborder=\"0\"></iframe>\r\n\t{{ post.body }}</div>\r\n\t<div class=\"panel-footer\">\r\n\t\t<a [routerLink]=\"['/post', post._id]\"><button class=\"btn btn-primary btn-sm\">Comments</button></a>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=container>\r\n<nav class=\"navbar navbar-default\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>                        \r\n      </button>\r\n      <a class=\"navbar-brand\" routerLink=\"/\">Youtube App</a>\r\n    </div>\r\n    <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\r\n      <ul class=\"nav navbar-nav navbar-left\">\r\n        <li *ngIf=\"authService.loggedIn()\"><a routerLink=\"/dashboard\">Dashboard</a></li>\r\n        <li *ngIf=\"authService.loggedIn()\"><a routerLink=\"/publish\">Publish</a></li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"authService.loggedIn()\"><a routerLink=\"/myprofile\">Profile</a></li>\r\n        <li *ngIf=\"authService.loggedIn()\"><a href=\"#\" (click)=\"onLogout()\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout</a></li>\r\n        <li><a routerLink=\"/login\" *ngIf=\"!authService.loggedIn()\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\r\n        <li><a routerLink=\"/signup\" *ngIf=\"!authService.loggedIn()\"><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>\r\n</div>"
 
 /***/ }),
 
 /***/ 697:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"page-header\">Delete Blog</h1>\r\n\r\n<div class=\"row show-hide-message\" *ngIf=\"message\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<div class=\"col-md-6\" *ngIf=\"this.found\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <button type=\"button\" name=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      <h4 class=\"modal-title\">Confirm</h4>\r\n    </div>\r\n\r\n    <div class=\"modal-body\">\r\n      <p>Are you sure you would like to delete this post?</p>\r\n    </div>\r\n\r\n    <div class=\"modal-footer\">\r\n      <button [disabled]=\"processing\" type=\"button\" name=\"button\" class=\"btn btn-success\" (click)=\"deletePost()\">Yes</button>\r\n      <button (click)=\"back()\" [disabled]=\"processing\" type=\"button\" name=\"button\" class=\"btn btn-secondary\">No</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br />\r\n\r\n  <div class=\"panel panel-primary\">\r\n    <div class=\"panel-heading\">\r\n      <strong>Posted by: </strong> {{ post.author }}\r\n      <br />\r\n      <strong>Date: </strong> {{ post.date | date:'MMM dd, yyyy' }}\r\n    </div>\r\n\r\n    <div class=\"panel-body\">\r\n      {{ post.body }}\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n</div>"
+module.exports = "<div class=\"panel panel-default\" *ngIf=\"found\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\"><a [routerLink]=\"['/profile', post.author]\">{{ post.author }}</a></div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n  <app-video [video]=\"post.link\"></app-video>\r\n  {{ post.body }}</div>\r\n  <div class=\"panel-footer\">\r\n    <a [routerLink]=\"['/edit_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-warning btn-sm\">Edit</button></a>\r\n    <a [routerLink]=\"['/delete_post', post._id]\" *ngIf=\"this.username === post.author\"><button class=\"btn btn-danger btn-sm\">Delete</button></a>\r\n    <button (click)=\"back()\" class=\"btn btn-primary btn-sm\">Back</button>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row show-hide-message\" align=\"center\" *ngIf=\"message\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<div class=\"jumbotron\" *ngIf=\"found\">\r\n<form [formGroup]=\"form\" (submit)=\"newComment()\">\r\n\t<textarea name=\"comment\" rows=\"5\" cols=\"20\" class=\"form-control\" placeholder=\"Add comment...\" formControlName=\"comment\" resize=\"none\"></textarea>\r\n\t<ul class=\"help-block\">\r\n        <li *ngIf=\"form.controls.comment.dirty && form.controls.comment.errors?.required\">This field is required.</li>\r\n        <li *ngIf=\"form.controls.comment.dirty && form.controls.comment.errors?.minlength || form.controls.comment.errors?.maxlength\">Comment must containt at least 10 character, but no more than 700. </li>\r\n    </ul>\r\n\t<button [disabled]=\"this.processing\" type=\"submit\" class=\"btn btn-sm btn-primary\">Submit</button>\r\n</form>\r\n</div>\r\n\r\n<h3 class=\"page-header\" *ngIf=\"found\">Comments:</h3>\r\n<ul class=\"list-group\" *ngFor=\"let comment of comments\">\r\n  <li class=\"list-group-item\"><h5 class=\"text-bold\"><strong><a [routerLink]=\"['/profile', comment.commentAuthor]\">{{ comment.commentAuthor }}</a></strong>   {{ comment.date | date: 'dd.MM.yyyy' }}</h5>\r\n  <h5>{{ comment.comment }}</h5>\r\n  </li>\r\n</ul> \r\n<h5 *ngIf=\"!commentsBool && found\">Post wasn't commented yet.</h5>"
 
 /***/ }),
 
 /***/ 698:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"page-header\">Edit Blog</h1>\r\n\r\n<div class=\"row show-hide-message\" align=\"center\" *ngIf=\"message\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<form *ngIf=\"this.display\">\r\n  <div class=\"form-group\">\r\n    <label for=\"body\">Post</label>\r\n      <textarea name=\"body\" rows=\"4\" cols=\"80\" placeholder=\"Write something...\" class=\"form-control\" [(ngModel)]=\"this.post.body\"></textarea>\r\n    </div>\r\n<button [disabled]=\"this.processing\" class=\"btn btn-primary\" type=\"submit\" (click)=\"updatePost()\">Save</button>\r\n<a ><button [routerLink]=\"['/delete_post', post._id]\" [disabled]=\"this.processing\" class=\"btn btn-primary\">Delete post</button></a>\r\n<button (click)=\"back()\" [disabled]=\"processing\" type=\"button\" name=\"button\" class=\"btn btn-secondary\">Back</button>\r\n</form>"
+module.exports = "<h1 class=\"page-header\">{{ username }}</h1>\r\n\r\n<h3 class=\"page-header\">{{ postsNumber }} posts by {{ username }}:</h3>\r\n\r\n<div class=\"panel panel-default\" *ngFor=\"let post of posts\">\r\n\t<div class=\"panel-heading\">\r\n\t\t<div class=\"panel-title pull-left author\">{{ post.author }}</div>\r\n        <div class=\"panel-title pull-right hidden-xs\">{{ post.date | date:'dd.MM.yyyy' }}</div>\r\n        <div class=\"clearfix\"></div>\r\n        <p class=\"hidden-sm hidden-md hidden-lg\">{{ post.date | date:'dd.mm.yyyy' }}</p>  \r\n\t</div>\r\n\t<div class=\"panel-body\">\r\n\t<app-video [video]=\"post.link\"></app-video>\r\n\t{{ post.body }}</div>\r\n\t<div class=\"panel-footer\">\r\n\t\t<a [routerLink]=\"['/post', post._id]\"><button class=\"btn btn-primary btn-sm\">Comments</button></a>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
 /***/ 699:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"page-header\">Create new post</h1>\r\n<div class=\"jumbotron\">\r\n\r\n<div class=\"row show-hide-message\" *ngIf=\"message && newPost\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<form [formGroup]=\"form\" (submit)=\"newPost()\">\r\n  <div class=\"form-group\">\r\n    <label for=\"body\"><strong>Post</strong></label>\r\n      <textarea name=\"body\" rows=\"4\" cols=\"80\" placeholder=\"Write something...\" class=\"form-control\" formControlName=\"body\"></textarea>\r\n      <ul class=\"help-block\">\r\n        <li *ngIf=\"form.controls.body.dirty && form.controls.body.errors?.required\">This field is required.</li>\r\n        <li *ngIf=\"form.controls.body.dirty && form.controls.body.errors?.minlength || form.controls.body.errors?.maxlength\">Post must containt at least 5 character, but no more than 600. </li>\r\n      </ul>\r\n    </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"Link\"><strong>Video</strong><span>: {{ linkTitle }}</span> </label>\r\n      <input type=\"text\" name=\"link\" class=\"form-control\" placeholder=\"Youtube Link\" autocomplete=\"off\" formControlName=\"link\" \r\n      (keyup)=\"getVideos()\" [(ngModel)]=\"q\"/>\r\n      <br>\r\n      <button [disabled]=\"this.processing\" class=\"btn btn-primary\">Publish</button>\r\n      <br><br>\r\n\r\n        <div *ngIf=\"videos && q\">\r\n            <!-- Larger size -->\r\n            <div class=\"panel panel-default video-md hidden-xs\" *ngFor=\"let video of videos\">\r\n              <div class=\"videoClick\" (click)=\"choseVideo({id: video.id.videoId, title: video.snippet.title})\">\r\n                <img class=\"pull-left\" src=\"{{ video.snippet.thumbnails.medium.url }}\">              \r\n                <h4>{{ video.snippet.title }}</h4>\r\n                <h5 class=\"hidden-xs\">{{ video.snippet.description }}</h5>\r\n              </div>\r\n            </div>\r\n\r\n            <!-- Small size -->\r\n            <div class=\"panel panel-default video-sm hidden-sm hidden-md hidden-lg\" *ngFor=\"let video of videos\">\r\n              <div class=\"videoClick\" (click)=\"choseVideo({id: video.id.videoId, title: video.snippet.title})\">\r\n                <img class=\"pull-left\" src=\"{{ video.snippet.thumbnails.default.url }}\">\r\n                <h5>{{ video.snippet.title }}</h5>\r\n              </div>\r\n            </div>\r\n        </div>\r\n  </div>\r\n\r\n</form>\r\n\r\n</div>"
+module.exports = "<h1 class=\"page-header\">Delete Blog</h1>\r\n\r\n<div class=\"row show-hide-message\" *ngIf=\"message\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<div class=\"col-md-6\" *ngIf=\"this.found\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <button type=\"button\" name=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      <h4 class=\"modal-title\">Confirm</h4>\r\n    </div>\r\n\r\n    <div class=\"modal-body\">\r\n      <p>Are you sure you would like to delete this post?</p>\r\n    </div>\r\n\r\n    <div class=\"modal-footer\">\r\n      <button [disabled]=\"processing\" type=\"button\" name=\"button\" class=\"btn btn-success\" (click)=\"deletePost()\">Yes</button>\r\n      <button (click)=\"back()\" [disabled]=\"processing\" type=\"button\" name=\"button\" class=\"btn btn-secondary\">No</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br />\r\n\r\n  <div class=\"panel panel-primary\">\r\n    <div class=\"panel-heading\">\r\n      <strong>Posted by: </strong> {{ post.author }}\r\n      <br />\r\n      <strong>Date: </strong> {{ post.date | date:'MMM dd, yyyy' }}\r\n    </div>\r\n\r\n    <div class=\"panel-body\">\r\n      {{ post.body }}\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n</div>"
 
 /***/ }),
 
 /***/ 700:
 /***/ (function(module, exports) {
 
+module.exports = "<h1 class=\"page-header\">Edit Blog</h1>\r\n\r\n<div class=\"row show-hide-message\" align=\"center\" *ngIf=\"message\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<form *ngIf=\"this.display\">\r\n  <div class=\"form-group\">\r\n    <label for=\"body\">Post</label>\r\n      <textarea name=\"body\" rows=\"4\" cols=\"80\" placeholder=\"Write something...\" class=\"form-control\" [(ngModel)]=\"this.post.body\"></textarea>\r\n    </div>\r\n<button [disabled]=\"this.processing\" class=\"btn btn-primary\" type=\"submit\" (click)=\"updatePost()\">Save</button>\r\n<a ><button [routerLink]=\"['/delete_post', post._id]\" [disabled]=\"this.processing\" class=\"btn btn-primary\">Delete post</button></a>\r\n<button (click)=\"back()\" [disabled]=\"processing\" type=\"button\" name=\"button\" class=\"btn btn-secondary\">Back</button>\r\n</form>"
+
+/***/ }),
+
+/***/ 701:
+/***/ (function(module, exports) {
+
+module.exports = "<h1 class=\"page-header\">Create new post</h1>\r\n<div class=\"jumbotron\">\r\n\r\n<div class=\"row show-hide-message\" *ngIf=\"message && newPost\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n<form [formGroup]=\"form\" (submit)=\"newPost()\">\r\n  <div class=\"form-group\">\r\n    <label for=\"body\"><strong>Post</strong></label>\r\n      <textarea name=\"body\" rows=\"4\" cols=\"80\" placeholder=\"Write something...\" class=\"form-control\" formControlName=\"body\"></textarea>\r\n      <ul class=\"help-block\">\r\n        <li *ngIf=\"form.controls.body.dirty && form.controls.body.errors?.required\">This field is required.</li>\r\n        <li *ngIf=\"form.controls.body.dirty && form.controls.body.errors?.minlength || form.controls.body.errors?.maxlength\">Post must containt at least 5 character, but no more than 600. </li>\r\n      </ul>\r\n    </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"Link\"><strong>Video</strong><span>: {{ linkTitle }}</span> </label>\r\n      <input type=\"text\" name=\"link\" class=\"form-control\" placeholder=\"Youtube Link\" autocomplete=\"off\" formControlName=\"link\" \r\n      (keyup)=\"getVideos()\" [(ngModel)]=\"q\"/>\r\n      <br>\r\n      <button [disabled]=\"this.processing\" class=\"btn btn-primary\">Publish</button>\r\n      <br><br>\r\n\r\n        <div *ngIf=\"videos && q\">\r\n            <!-- Larger size -->\r\n            <div class=\"panel panel-default video-md hidden-xs\" *ngFor=\"let video of videos\">\r\n              <div class=\"videoClick\" (click)=\"choseVideo({id: video.id.videoId, title: video.snippet.title})\">\r\n                <img class=\"pull-left\" src=\"{{ video.snippet.thumbnails.medium.url }}\">              \r\n                <h4>{{ video.snippet.title }}</h4>\r\n                <h5 class=\"hidden-xs\">{{ video.snippet.description }}</h5>\r\n              </div>\r\n            </div>\r\n\r\n            <!-- Small size -->\r\n            <div class=\"panel panel-default video-sm hidden-sm hidden-md hidden-lg\" *ngFor=\"let video of videos\">\r\n              <div class=\"videoClick\" (click)=\"choseVideo({id: video.id.videoId, title: video.snippet.title})\">\r\n                <img class=\"pull-left\" src=\"{{ video.snippet.thumbnails.default.url }}\">\r\n                <h5>{{ video.snippet.title }}</h5>\r\n              </div>\r\n            </div>\r\n        </div>\r\n  </div>\r\n\r\n</form>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ 702:
+/***/ (function(module, exports) {
+
 module.exports = "<h2>Sign Up<br><small class=\"hidden-xs\">In order to use the site you have to create an account.</small></h2>\r\n<p class=\"text-info hidden-sm hidden-md hidden-lg\">In order to use the site you have to create an account.</p>\r\n<br class=\"hidden-xs\">\r\n\r\n<div class=\"row show-hide-message\" align=\"center\">\r\n  <div [ngClass]=\"messageClass\">\r\n    {{ message }}\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n <form [formGroup]=\"form\" (submit)=\"onRegisterSubmit()\">\r\n  <div class=\"form-group\">\r\n    <label>Username:</label>\r\n    <input type=\"text\" class=\"form-control\" name=\"username\" formControlName=\"username\" autocomplete=\"off\" (keyup)=\"this.checkUsername()\">\r\n    <ul class=\"help-block\">\r\n      <li *ngIf=\"form.controls.username.errors?.required && form.controls.username.dirty\" class=\"text-danger\">Username is required.</li>\r\n      <li *ngIf=\"form.controls.username.errors?.minlength && form.controls.username.dirty\" class=\"text-danger\">Username must be at least 3 characters long.</li>\r\n      <li *ngIf=\"form.controls.username.errors?.maxlength && form.controls.username.dirty\" class=\"text-danger\">Username can't containt more than 25 characters.</li>\r\n      <li *ngIf=\"this.usernameMessage\">{{ this.usernameMessage }}</li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Email address:</label>\r\n    <input class=\"form-control\" id=\"email\" name=\"email\" formControlName=\"email\" autocomplete=\"off\" (keyup)=\"this.checkEmail()\">\r\n    <ul  class=\"help-block\">\r\n      <li *ngIf=\"form.controls.email.errors?.required && form.controls.email.dirty\" class=\"text-danger\">Email is required.</li>\r\n      <li *ngIf=\"form.controls.email.errors?.minlength && form.controls.email.dirty\" class=\"text-danger\">Email must be at least 5 characters long.</li>\r\n      <li *ngIf=\"form.controls.email.errors?.maxlength && form.controls.email.dirty\" class=\"text-danger\">Email can't containt more than 30 characters.</li>\r\n      <li *ngIf=\"form.controls.email.errors?.validateEmail && form.controls.email.dirty\" class=\"text-danger\">You have to enter an email adress.</li>\r\n      <li *ngIf=\"this.emailMessage\">{{ this.emailMessage }}</li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password:</label>\r\n    <input type=\"password\" class=\"form-control\" name=\"password\" formControlName=\"password\" autocomplete=\"off\">\r\n    <ul class=\"help-block\">\r\n      <li *ngIf=\"form.controls.password.errors?.required && form.controls.password.dirty\" class=\"text-danger\">Password is required.</li>\r\n      <li *ngIf=\"form.controls.password.errors?.minlength && form.controls.password.dirty\" class=\"text-danger\">Password must be at least 8 characters long.</li>\r\n      <li *ngIf=\"form.controls.password.errors?.maxlength && form.controls.password.dirty\" class=\"text-danger\">Password can't containt more than 30 characters.</li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Confirm password:</label>\r\n    <input type=\"password\" class=\"form-control\" name=\"confirm\" formControlName=\"confirm\" autocomplete=\"off\">\r\n    <ul class=\"help-block\">\r\n      <li *ngIf=\"form.controls.confirm.errors?.required && form.controls.confirm.dirty\" class=\"text-danger\">You have to confirm a password.</li>\r\n      <li *ngIf=\"form.errors?.validatePasswords && form.controls.confirm.dirty\" class=\"text-danger\">Passwords do not match</li>\r\n    </ul>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!form.valid || processing || usernameMessage\" class=\"btn btn-primary hidden-xs\">Sign Up</button>\r\n  <button type=\"submit\" [disabled]=\"!form.valid || processing || emailMessage\" class=\"btn btn-primary btn-block hidden-sm hidden-md hidden-lg\">Sign Up</button>\r\n</form> "
 
 /***/ }),
 
-/***/ 724:
+/***/ 703:
+/***/ (function(module, exports) {
+
+module.exports = "<iframe width=\"400\" height=\"300\" [src]=\"this.enableLink(video)\" frameborder=\"0\" class=\"hidden-xs\"></iframe>\n<iframe width=\"250\" height=\"200\" [src]=\"this.enableLink(video)\" class=\"hidden-sm hidden-md hidden-lg\"></iframe> \n"
+
+/***/ }),
+
+/***/ 727:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(401);
@@ -1582,5 +1647,5 @@ module.exports = __webpack_require__(401);
 
 /***/ })
 
-},[724]);
+},[727]);
 //# sourceMappingURL=main.bundle.map

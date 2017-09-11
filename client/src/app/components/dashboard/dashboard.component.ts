@@ -10,8 +10,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class DashboardComponent implements OnInit {
 
+  test = "test";
   postsArray;
   username;
+  linkvideo = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/cYMCLz5PQVw')
 
   constructor(
   	private authService: AuthService,
@@ -23,12 +25,13 @@ export class DashboardComponent implements OnInit {
     this.authService.getProfile().subscribe((profile) => {
       this.username = profile.user.username;
     });
-  	this.getAllPosts()
+  	this.getAllPosts();
   }
 
   getAllPosts() {
   	this.postsService.getAllPosts().subscribe((posts) => {
-  		this.postsArray = posts.posts
+  		this.postsArray = posts.posts;
+          console.log(this.postsArray[0].link)
   	})
   }
 
