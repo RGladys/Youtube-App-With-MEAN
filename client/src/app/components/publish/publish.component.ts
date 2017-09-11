@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { PostsService } from '../../services/posts.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,20 +17,23 @@ export class PublishComponent implements OnInit {
   username;
   messageClass;
   message;
+  videos = '';
+  q = '';
+  link;
+  linkTitle;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private router: Router
     ) {
     this.form = this.formBuilder.group({
-      link: ['', Validators.compose([
-        Validators.required,
-      ])],
+      link: '',
       body: ['', Validators.compose([
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(500)
+        Validators.maxLength(600)
       ])]
     })
   }
@@ -40,15 +44,23 @@ export class PublishComponent implements OnInit {
     })
   }
 
-  getPosts() {
-  	
+  getVideos() {
+    this.postsService.searchVideo(this.q).subscribe((data) => {
+      this.videos = data.items;
+    })
+  }
+
+  choseVideo(video) {
+    this.link = 'http://www.youtube.com/embed/' + video.id;
+    this.linkTitle = video.title;
+    this.form.setValue({link: '', body: this.form.get('body').value})
   }
 
   newPost() {
     this.processing = true;
   	const post = {
-      link: this.form.get('link').value,
-      body: this.form.get('body').value,
+      link: this.link,
+      body: this.form.get('body').value.trim(),
       author: this.username
     };
     this.postsService.newPost(post).subscribe((data) => {
@@ -60,10 +72,8 @@ export class PublishComponent implements OnInit {
         this.messageClass = 'alert alert-success';
         this.message = data.message;
         setTimeout(() => {
-          this.processing = false;
-          this.message = false;
-          this.form.reset();
-        }, 2000)
+          this.router.navigate(['/post', data.id])
+        }, 1000)
       }
     })
   } 

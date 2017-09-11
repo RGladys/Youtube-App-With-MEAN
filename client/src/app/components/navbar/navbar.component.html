@@ -9,13 +9,13 @@
       </button>
       <a class="navbar-brand" routerLink="/">Youtube App</a>
     </div>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
         <li *ngIf="authService.loggedIn()"><a routerLink="/dashboard">Dashboard</a></li>
         <li *ngIf="authService.loggedIn()"><a routerLink="/publish">Publish</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="authService.loggedIn()"><a routerLink="/profile">Profile</a></li>
+        <li *ngIf="authService.loggedIn()"><a routerLink="/myprofile">Profile</a></li>
         <li *ngIf="authService.loggedIn()"><a href="#" (click)="onLogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         <li><a routerLink="/login" *ngIf="!authService.loggedIn()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li><a routerLink="/signup" *ngIf="!authService.loggedIn()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

@@ -1,3 +1,13 @@
 body {
-	background: #fcfcfc
+	background: #fcfcfc;
+	word-wrap: break-word
+}
+
+textarea, input {
+	resize: none;
+}
+
+iframe {
+	float: left;
+	padding-right: 5px;
 }

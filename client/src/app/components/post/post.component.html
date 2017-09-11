@@ -1,0 +1,42 @@
+<div class="panel panel-default" *ngIf="found">
+	<div class="panel-heading">
+		<div class="panel-title pull-left author"><a [routerLink]="['/profile', post.author]">{{ post.author }}</a></div>
+        <div class="panel-title pull-right hidden-xs">{{ post.date | date:'dd.MM.yyyy' }}</div>
+        <div class="clearfix"></div>
+        <p class="hidden-sm hidden-md hidden-lg">{{ post.date | date:'dd.mm.yyyy' }}</p>  
+	</div>
+	<div class="panel-body">
+  <iframe width="400" height="300" [src]="this.link" frameborder="0" class="hidden-xs"></iframe>
+  <iframe width="250" height="200" [src]="this.link" frameborder="0" class="hidden-sm hidden-md hidden-lg"></iframe>
+  {{ post.body }}</div>
+  <div class="panel-footer">
+    <a [routerLink]="['/edit_post', post._id]" *ngIf="this.username === post.author"><button class="btn btn-warning btn-sm">Edit</button></a>
+    <a [routerLink]="['/delete_post', post._id]" *ngIf="this.username === post.author"><button class="btn btn-danger btn-sm">Delete</button></a>
+    <button (click)="back()" class="btn btn-primary btn-sm">Back</button>
+  </div>
+</div>
+
+<div class="row show-hide-message" align="center" *ngIf="message">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+<div class="jumbotron" *ngIf="found">
+<form [formGroup]="form" (submit)="newComment()">
+	<textarea name="comment" rows="5" cols="20" class="form-control" placeholder="Add comment..." formControlName="comment" resize="none"></textarea>
+	<ul class="help-block">
+        <li *ngIf="form.controls.comment.dirty && form.controls.comment.errors?.required">This field is required.</li>
+        <li *ngIf="form.controls.comment.dirty && form.controls.comment.errors?.minlength || form.controls.comment.errors?.maxlength">Comment must containt at least 10 character, but no more than 700. </li>
+    </ul>
+	<button [disabled]="this.processing" type="submit" class="btn btn-sm btn-primary">Submit</button>
+</form>
+</div>
+
+<h3 class="page-header" *ngIf="found">Comments:</h3>
+<ul class="list-group" *ngFor="let comment of comments">
+  <li class="list-group-item"><h5 class="text-bold"><strong><a [routerLink]="['/profile', comment.commentAuthor]">{{ comment.commentAuthor }}</a></strong>   {{ comment.date | date: 'dd.MM.yyyy' }}</h5>
+  <h5>{{ comment.comment }}</h5>
+  </li>
+</ul> 
+<h5 *ngIf="!commentsBool && found">Post wasn't commented yet.</h5>

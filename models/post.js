@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
 
 //Body length check function
 let bodyLengthCheck = (body) => {
-	if (body.length < 5 || body.length > 500) {
+	if (body.length < 5 || body.length > 600) {
       return false; 
     } else {
       return true; 
@@ -24,7 +24,7 @@ const bodyValidators = [
 
 //Comment length check function
 let commentLengthCheck = (comment) => {
-	if (comment[0].length < 5 || comment[0].length > 300) {
+	if (comment.length < 10 || comment.length > 700) {
       return false; 
     } else {
       return true; 
@@ -34,7 +34,7 @@ let commentLengthCheck = (comment) => {
 //Comment check object
 const commentValidators = {
 	validator: commentLengthCheck,
-	message: 'Comment must contain at least 5 characters, but no more than 200'
+	message: 'Comment must contain at least 10 characters, but no more than 700'
 };
 
 
@@ -47,7 +47,8 @@ const postSchema = new Schema({
   comments: [
     {
       comment: { type: String, validate: commentValidators },
-      commentAuthor: { type: String }
+      commentAuthor: { type: String },
+      date: { type: String, default: Date.now() }
     }
   ]
 });

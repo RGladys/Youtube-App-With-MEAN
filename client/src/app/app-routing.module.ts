@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PublishComponent } from './components/publish/publish.component';
 import { EditComponent } from './components/publish/edit/edit.component';
 import { DeleteComponent } from './components/publish/delete/delete.component';
+import { PostComponent } from './components/post/post.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
 
@@ -27,7 +29,12 @@ const appRoutes: Routes = [
     canActivate: [NotAuthGuard]
   },
   {
-    path: 'profile',
+    path: 'myprofile',
+    component: MyProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile/:user',
     component: ProfileComponent,
     canActivate: [AuthGuard]
   },
@@ -49,6 +56,11 @@ const appRoutes: Routes = [
   {
     path: 'delete_post/:id',
     component: DeleteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'post/:id',
+    component: PostComponent,
     canActivate: [AuthGuard]
   },
   { path: '**', component: HomeComponent } 

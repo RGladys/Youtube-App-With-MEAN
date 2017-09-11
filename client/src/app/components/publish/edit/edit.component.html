@@ -13,5 +13,5 @@
     </div>
 <button [disabled]="this.processing" class="btn btn-primary" type="submit" (click)="updatePost()">Save</button>
 <a ><button [routerLink]="['/delete_post', post._id]" [disabled]="this.processing" class="btn btn-primary">Delete post</button></a>
-<a routerLink="/dashboard"><button [disabled]="processing" type="button" name="button" class="btn btn-secondary">Back</button></a>
+<button (click)="back()" [disabled]="processing" type="button" name="button" class="btn btn-secondary">Back</button>
 </form>

@@ -19,7 +19,7 @@
 
     <div class="modal-footer">
       <button [disabled]="processing" type="button" name="button" class="btn btn-success" (click)="deletePost()">Yes</button>
-      <a routerLink="/dashboard"><button [disabled]="processing" type="button" name="button" class="btn btn-danger">No</button></a>
+      <button (click)="back()" [disabled]="processing" type="button" name="button" class="btn btn-secondary">No</button>
     </div>
   </div>
 

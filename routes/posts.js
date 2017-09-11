@@ -22,6 +22,7 @@ router.use((req, res, next) => {
     }
 });
 
+//Create new post
 router.post('/newpost', (req, res) => {
 	if (!req.body.link) {
 		res.json({success: false, message: 'Youtube link is required'});
@@ -35,7 +36,7 @@ router.post('/newpost', (req, res) => {
 			body: req.body.body,
 			author: req.body.author
 		});
-		post.save((err) => {
+		post.save((err, data) => {
 			if (err) {
 				if (err.errors) {
 					if (err.errors.link) {
@@ -49,7 +50,8 @@ router.post('/newpost', (req, res) => {
 					res.json({success: false, message: 'Error'});
 				}
 			} else {
-				res.json({success: true, message: 'Post saved!'})
+				res.json({success: true, message: 'Post saved!', id: data.id})
+				console.log(data.id)
 			}
 		})
 	}
@@ -67,6 +69,32 @@ router.get('/getposts', (req, res) => {
 		}
 	}).sort({'_id': -1});
 });
+
+
+//Get all posts by user
+router.get('/getallby/:username', (req, res) => {
+	if (!req.params.username) {
+		res.json({success: false, message: 'Wrong username.'})
+	} else {
+		User.findOne({ username: req.params.username }, (err, user) => {
+			if (err) {
+				res.json({success: false, message: 'Error.'})
+			} else if (!user) {
+				res.json({success: false, message: 'User not found.'})
+			} else {
+				Post.find({ author: user.username }, (err, posts) => {
+					if (err) {
+						res.json({success: false, message: err})
+					} else if (!posts) {
+						res.json({success: false, message: 'No posts found.'})
+					} else {
+						res.json({success: true, message: posts})
+					}
+				})
+			}
+		})
+	}
+})
 
 //Get single post
 router.get('/getpost/:id', (req, res) => {
@@ -92,6 +120,23 @@ router.get('/getpost/:id', (req, res) => {
 					}
 				}
 			})
+		}
+	})
+	}
+});
+
+//Read single post
+router.get('/readpost/:id', (req, res) => {
+	if (!req.params.id) {
+		res.json({success: false, message: 'No post ID was provided.'})
+	} else {
+		Post.find({_id: req.params.id}, (err, post) => {
+		if (err) {
+			res.json({success: false, message: 'Invalid ID.'})
+		} else if (!post) {
+			res.json({success: false, message: 'Post not found.'})
+		} else {
+			res.json({success: true, post: post})
 		}
 	})
 	}
@@ -161,6 +206,43 @@ router.delete('/deletepost/:id', (req, res) => {
 								}
 							})
 						}
+					}
+				})
+			}
+		})
+	}
+});
+
+//Comment
+router.post('/comment', (req, res) => {
+	if (!req.body.comment) {
+		res.json({success: false, message: 'No comment provided.'})
+	} else if (!req.body.id) {
+		res.json({success: false, message: 'No ID provided.'})
+	} else {
+		Post.findOne({_id: req.body.id}, (err, post) => {
+			if (err) {
+				res.json({success: false, message: 'Invalid ID.'})
+			} else if (!post) {
+				res.json({success: false, message: 'Post not found.'})
+			} else {
+				User.findOne({_id: req.decoded.userId}, (err, user) => {
+					if (err) {
+						res.json({success: false, message: 'Error.'})
+					} else if (!user) {
+						res.json({success: false, message: 'User not found.'})
+					} else {
+						post.comments.push({
+							comment: req.body.comment,
+							commentAuthor: user.username
+						});
+						post.save((err) => {
+							if (err) {
+								res.json({success: false, message: 'Comment must containt at least 10 characters, but no more than 700.'})
+							} else {
+								res.json({success: true, message: 'Comment saved!'})
+							}
+						})
 					}
 				})
 			}

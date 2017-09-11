@@ -28,9 +28,18 @@ export class PostsService {
   	return this.http.post(this.domain + 'posts/newpost', post, this.header).map((res) => res.json())
   }
 
+  searchVideo(q) {
+    return this.http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=AIzaSyArgaoqh4M7Z9DiYD_GUmB4E5UEvyerFAs&q=' + q).map((res) => res.json())
+  }
+
   getAllPosts() {
     this.createAuthenticationHeaders();
     return this.http.get(this.domain + 'posts/getposts', this.header).map((res) => res.json())
+  }
+
+  getAllPostsBy(username) {
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'posts/getallby/' + username, this.header).map((res) => res.json())
   }
 
   getPost(id) {
@@ -46,5 +55,15 @@ export class PostsService {
   deletePost(id) {
     this.createAuthenticationHeaders();
     return this.http.delete(this.domain + 'posts/deletepost/' + id, this.header).map((res) => res.json())
+  }
+
+  readPost(id) {
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'posts/readpost/' + id, this.header).map((res) => res.json())
+  }
+
+  newComment(comment) {
+    this.createAuthenticationHeaders();
+    return this.http.post(this.domain + 'posts/comment/', comment, this.header).map((res) => res.json())
   }
 }

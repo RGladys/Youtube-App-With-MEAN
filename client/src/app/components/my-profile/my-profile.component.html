@@ -1,6 +1,11 @@
-<h1 class="page-header">{{ username }}</h1>
+<h1 class="page-header">Profile Page</h1>
+<ul class="list-group">
+  <li class="list-group-item">Username: {{ username }}</li>
+  <li class="list-group-item">Email: {{ email }}</li>
+  <li class="list-group-item">Posts: {{ postsNumber }}</li>
+</ul>
 
-<h3 class="page-header">{{ postsNumber }} posts by {{ username }}:</h3>
+<h3 class="page-header">Posts by {{ username }}:</h3>
 
 <div class="panel panel-default" *ngFor="let post of posts">
 	<div class="panel-heading">
@@ -14,5 +19,7 @@
 	{{ post.body }}</div>
 	<div class="panel-footer">
 		<a [routerLink]="['/post', post._id]"><button class="btn btn-primary btn-sm">Comments</button></a>
+		<a [routerLink]="['/edit_post', post._id]"><button class="btn btn-warning btn-sm">Edit</button></a>
+		<a [routerLink]="['/delete_post', post._id]"><button class="btn btn-danger btn-sm">Delete</button></a>
 	</div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../../../services/posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-delete',
@@ -19,7 +20,8 @@ export class DeleteComponent implements OnInit {
   constructor(
   	private postsService: PostsService,
   	private activatedRoute: ActivatedRoute,
-  	private router: Router
+  	private router: Router,
+    private location: Location
   	) { }
 
   ngOnInit() {
@@ -50,5 +52,9 @@ export class DeleteComponent implements OnInit {
   			}, 1000)
   		}
   	})
+  }
+
+  back() {
+   this.location.back()
   }
 }

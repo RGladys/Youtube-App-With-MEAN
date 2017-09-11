@@ -1,13 +1,17 @@
 <div class="panel panel-default" *ngFor="let post of postsArray">
 	<div class="panel-heading">
-		<div class="panel-title pull-left author">{{ post.author }}</div>
+		<div class="panel-title pull-left author"><a [routerLink]="['/profile', post.author]">{{ post.author }}</a></div>
         <div class="panel-title pull-right hidden-xs">{{ post.date | date:'dd.MM.yyyy' }}</div>
         <div class="clearfix"></div>
         <p class="hidden-sm hidden-md hidden-lg">{{ post.date | date:'dd.mm.yyyy' }}</p>  
 	</div>
-	<div class="panel-body">{{ post.body }}</div>
+	<div class="panel-body">
+	<iframe width="400" height="300" [src]="enableLink(post.link)" frameborder="0" class="hidden-xs"></iframe>
+	<iframe width="250" height="200" [src]="enableLink(post.link)" frameborder="0" class="hidden-sm hidden-md hidden-lg"></iframe>
+	{{ post.body }}
+	</div>
 	<div class="panel-footer">
-		<a [routerLink]="['/comment_post', post._id]"><button class="btn btn-primary btn-sm">Comments</button></a>
+		<a [routerLink]="['/post', post._id]"><button class="btn btn-primary btn-sm">Comments</button></a>
 		<a [routerLink]="['/edit_post', post._id]" *ngIf="this.username === post.author"><button class="btn btn-warning btn-sm">Edit</button></a>
 		<a [routerLink]="['/delete_post', post._id]" *ngIf="this.username === post.author"><button class="btn btn-danger btn-sm">Delete</button></a>
 	</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { PostsService } from '../../services/posts.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
   	private authService: AuthService,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private domSanitizer: DomSanitizer
   	) { }
 
   ngOnInit() {
@@ -28,6 +30,10 @@ export class DashboardComponent implements OnInit {
   	this.postsService.getAllPosts().subscribe((posts) => {
   		this.postsArray = posts.posts
   	})
+  }
+
+  enableLink(link) {
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(link)
   }
 
 }

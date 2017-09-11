@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from '../../../services/posts.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit',
@@ -19,7 +20,8 @@ export class EditComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private postsService: PostsService,
-    private router: Router
+    private router: Router,
+    private location: Location
     ) { }
 
   ngOnInit() {
@@ -31,7 +33,6 @@ export class EditComponent implements OnInit {
       } else {
         this.display = true;
         this.post = post.post[0];  
-        console.log(this.post)
       }     
     })
   }
@@ -51,5 +52,9 @@ export class EditComponent implements OnInit {
         }, 1000)
       }
     })
+  }
+
+  back() {
+   this.location.back()
   }
 }

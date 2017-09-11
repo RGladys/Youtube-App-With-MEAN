@@ -9,21 +9,41 @@
 
 <form [formGroup]="form" (submit)="newPost()">
   <div class="form-group">
-    <label for="body">Post</label>
+    <label for="body"><strong>Post</strong></label>
       <textarea name="body" rows="4" cols="80" placeholder="Write something..." class="form-control" formControlName="body"></textarea>
       <ul class="help-block">
         <li *ngIf="form.controls.body.dirty && form.controls.body.errors?.required">This field is required.</li>
-        <li *ngIf="form.controls.body.dirty && form.controls.body.errors?.minlength || form.controls.body.errors?.maxlength">Post must containt at least 5 character, but no more than 400. </li>
+        <li *ngIf="form.controls.body.dirty && form.controls.body.errors?.minlength || form.controls.body.errors?.maxlength">Post must containt at least 5 character, but no more than 600. </li>
       </ul>
     </div>
   <div class="form-group">
-    <label for="Link">Link</label>
-      <input type="text" name="link" class="form-control" placeholder="Youtube Link" autocomplete="off" formControlName="link" />
-      <ul class="help-block">
-        <li *ngIf="form.controls.link.errors?.required && form.controls.link.dirty">Youtube link is required.</li>
-      </ul>
+    <label for="Link"><strong>Video</strong><span>: {{ linkTitle }}</span> </label>
+      <input type="text" name="link" class="form-control" placeholder="Youtube Link" autocomplete="off" formControlName="link" 
+      (keyup)="getVideos()" [(ngModel)]="q"/>
+      <br>
+      <button [disabled]="this.processing" class="btn btn-primary">Publish</button>
+      <br><br>
+
+        <div *ngIf="videos && q">
+            <!-- Larger size -->
+            <div class="panel panel-default video-md hidden-xs" *ngFor="let video of videos">
+              <div class="videoClick" (click)="choseVideo({id: video.id.videoId, title: video.snippet.title})">
+                <img class="pull-left" src="{{ video.snippet.thumbnails.medium.url }}">              
+                <h4>{{ video.snippet.title }}</h4>
+                <h5 class="hidden-xs">{{ video.snippet.description }}</h5>
+              </div>
+            </div>
+
+            <!-- Small size -->
+            <div class="panel panel-default video-sm hidden-sm hidden-md hidden-lg" *ngFor="let video of videos">
+              <div class="videoClick" (click)="choseVideo({id: video.id.videoId, title: video.snippet.title})">
+                <img class="pull-left" src="{{ video.snippet.thumbnails.default.url }}">
+                <h5>{{ video.snippet.title }}</h5>
+              </div>
+            </div>
+        </div>
   </div>
-<button [disabled]="this.processing" class="btn btn-primary">Publish</button>
+
 </form>
 
 </div>

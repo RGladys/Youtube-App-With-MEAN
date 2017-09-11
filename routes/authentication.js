@@ -103,6 +103,7 @@ router.post('/login', (req, res) => {
     }
 });
 
+//Token
 router.use((req, res, next) => {
     const token = req.headers.authorisation; 
     if (!token) {
@@ -119,7 +120,7 @@ router.use((req, res, next) => {
     }
 });
 
-//Get profile
+//Get my profile
 router.get('/profile', (req, res) => {
 	User.findOne({ _id: req.decoded.userId }).select('username email').exec((err, user) => {
 		if (err) {
@@ -131,5 +132,6 @@ router.get('/profile', (req, res) => {
 		}
 	})
 });
+
 
 module.exports = router

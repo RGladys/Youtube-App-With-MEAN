@@ -11,13 +11,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { PostsService } from './services/posts.service';
-import { ProfileComponent } from './components/profile/profile.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
 import { PublishComponent } from './components/publish/publish.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditComponent } from './components/publish/edit/edit.component';
 import { DeleteComponent } from './components/publish/delete/delete.component';
+import { PostComponent } from './components/post/post.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { DeleteComponent } from './components/publish/delete/delete.component';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent,
+    MyProfileComponent,
     PublishComponent,
     DashboardComponent,
     EditComponent,
-    DeleteComponent
+    DeleteComponent,
+    PostComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
