@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup;
+  form;
   messageClass;
   message;
   processing = false;

@@ -7,6 +7,7 @@ const express = require('express'),
     path = require('path'),
     cors = require('cors'),
 	  app = express();
+    port = process.env.PORT || 8080;
 mongoose.Promise = global.Promise;
 
 //Database
@@ -36,6 +37,6 @@ app.get('*', (req, res) => {
 });
 
 //Start server
-app.listen(3000, () => {
+app.listen(port, () => {
 	console.log('Server listens...')
 })

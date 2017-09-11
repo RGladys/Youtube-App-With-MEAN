@@ -4,8 +4,12 @@
   "description": "Social app based on sharing youtube videos, created with MEAN stack. ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "cd client && ng build --prod && cd.. && node server.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RGladys/Youtube-App-With-MEAN.git"
   },
   "keywords": [
     "angular2",

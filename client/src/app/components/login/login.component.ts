@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  form;
   messageClass;
   message;
   processing = false;

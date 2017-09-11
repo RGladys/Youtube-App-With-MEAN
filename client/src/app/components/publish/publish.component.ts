@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class PublishComponent implements OnInit {
 
-  form: FormGroup;
+  form;
   processing = false;
   username;
   messageClass;
