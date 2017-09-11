@@ -9,10 +9,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class VideoComponent implements OnInit {
 
   @Input() video;
+  link;
 
   constructor(private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.link = this.enableLink(this.video)
   }
 
   enableLink(link) {
