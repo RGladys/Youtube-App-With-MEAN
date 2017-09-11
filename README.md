@@ -1,1 +1,0 @@
-Youtube social application made with MEAN stack. 

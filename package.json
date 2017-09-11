@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "cd client && ng build --prod && cd.. && node server.js "
+    "build": "cd client && ng build --prod"
   },
   "repository": {
     "type": "git",
