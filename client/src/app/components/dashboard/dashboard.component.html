@@ -6,8 +6,8 @@
         <p class="hidden-sm hidden-md hidden-lg">{{ post.date | date:'dd.mm.yyyy' }}</p>  
 	</div>
 	<div class="panel-body">
-	<iframe width="400" height="300" [src]="enableLink(post.link)" frameborder="0" class="hidden-xs"></iframe>
-	<iframe width="250" height="200" [src]="enableLink(post.link)" frameborder="0" class="hidden-sm hidden-md hidden-lg"></iframe>
+	<iframe id="ytplayer" width="400" height="300" [src]="enableLink(post.link)" frameborder="0" class="hidden-xs"></iframe>
+	<iframe id="ytplayer" width="250" height="200" [src]="enableLink(post.link)" frameborder="0" class="hidden-sm hidden-md hidden-lg"></iframe>
 	{{ post.body }}
 	</div>
 	<div class="panel-footer">
