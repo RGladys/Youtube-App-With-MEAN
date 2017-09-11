@@ -51,7 +51,7 @@ export class PublishComponent implements OnInit {
   }
 
   choseVideo(video) {
-    this.link = 'http://www.youtube.com/embed/' + video.id;
+    this.link = 'https://www.youtube.com/embed/' + video.id;
     this.linkTitle = video.title;
     this.form.setValue({link: '', body: this.form.get('body').value})
   }
